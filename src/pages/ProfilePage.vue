@@ -2,7 +2,7 @@
   <div class="home col-md-12">
     <ProfileThread :profiles="profiles" />
     <div v-for="a in activities" :key="a.id">
-      <Thread :activity="a" />
+      <ActivityThread :activity="a" />
     </div>
   </div>
 </template>
@@ -14,8 +14,6 @@ import Pop from '../utils/Notifier'
 import { profilesService } from '../services/ProfileService'
 import { activitiesService } from '../services/ActivitiesService'
 import { useRoute } from 'vue-router'
-import ProfileThread from '../components/ProfileThread.vue'
-import Thread from '../components/ActivityThread.vue'
 export default {
   name: 'Profile',
   setup() {
@@ -41,14 +39,11 @@ export default {
       // state,
       // computeds
       activities: computed(() => AppState.currentActivities),
-      profiles: computed(() => {
-        return AppState.profiles
-      })
+      profiles: computed(() =>
+        AppState.profiles
+      )
       // methods
     }
-  },
-  components: {
-    ProfileThread, Thread
   }
 
 }

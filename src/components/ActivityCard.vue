@@ -4,7 +4,7 @@
       <div class="row w-100 p-0 mx-0 d-flex justify-content-between border-bottom border-light ">
         <div class="col-md-4 p-2 m-1">
           <!-- NOTE @click.stop prevents the parent element from being clicked -->
-          <router-link router-link :to="{ name: 'Profile', params: {id: activity.creator.id } }" @click.stop="" class="creator w-100 d-flex">
+          <router-link router-link :to="{ name: 'ProfilePage', params: {id: activity.creator.id } }" class="creator w-100 d-flex">
             <img class="h-100 rounded-pill m-0 p-0"
                  :src="activity.creator.picture"
                  alt=""
@@ -38,8 +38,10 @@
 </template>
 
 <script>
-import { AppState } from '../AppState'
 import { computed } from '@vue/runtime-core'
+import { AppState } from '../AppState'
+import Pop from '../utils/Notifier'
+import { activitiesService } from '../services/ActivitiesService'
 export default {
   props: {
     activity: {
@@ -47,7 +49,7 @@ export default {
       required: true
     }
   },
-  setup() {
+  setup(props) {
     return {
       account: computed(() => AppState.account)
     }

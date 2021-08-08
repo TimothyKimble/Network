@@ -9,7 +9,7 @@ export default {
   name: 'Thread',
   props: {
     activities: {
-      type: Object,
+      type: Array,
       required: true
     }
   }

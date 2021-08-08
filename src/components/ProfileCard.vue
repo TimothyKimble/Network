@@ -76,7 +76,6 @@ export default {
   setup(props) {
     console.log(props.profile)
     return {
-      account: computed(() => AppState.account)
     }
   },
   components: {
