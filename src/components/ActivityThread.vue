@@ -1,15 +1,15 @@
 <template>
   <div class="">
-    <ActivityCard v-for="a in activities" :key="a.id" :activity="a" />
+    <ActivityCard v-for="a in activities.posts" :key="a.id" :activity="a" />
   </div>
 </template>
 
 <script>
 export default {
-  name: 'Thread',
+  name: 'ActivityThread',
   props: {
     activities: {
-      type: Array,
+      type: Object,
       required: true
     }
   }

@@ -2,7 +2,7 @@
   <div class="home col-md-12">
     <ProfileThread :profiles="profiles" />
     <div v-for="a in activities" :key="a.id">
-      <ActivityThread :activity="a" />
+      <ActivityThread :activities="activities" />
     </div>
   </div>
 </template>
@@ -15,7 +15,7 @@ import { profilesService } from '../services/ProfileService'
 import { activitiesService } from '../services/ActivitiesService'
 import { useRoute } from 'vue-router'
 export default {
-  name: 'Profile',
+  name: 'ProfilePage',
   setup() {
     const router = useRoute()
 

@@ -49,7 +49,7 @@ export default {
       required: true
     }
   },
-  setup(props) {
+  setup() {
     return {
       account: computed(() => AppState.account)
     }

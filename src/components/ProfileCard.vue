@@ -73,8 +73,7 @@ export default {
       required: true
     }
   },
-  setup(props) {
-    console.log(props.profile)
+  setup() {
     return {
     }
   },

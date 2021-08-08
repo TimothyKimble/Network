@@ -17,8 +17,7 @@ export default {
   components: {
     ProfileCard
   },
-  setup(props) {
-    console.log(props.profiles)
+  setup() {
   }
 }
 </script>

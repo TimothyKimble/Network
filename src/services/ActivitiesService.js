@@ -5,8 +5,8 @@ import { api } from './AxiosService'
 class ActivitiesService {
   async getAll(query = {}) {
     const res = await api.get('api/posts' + convertToQuery(query))
-    logger.log(res.data.posts)
-    AppState.activities = res.data.posts
+    logger.log(res.data)
+    AppState.activities = res.data
   }
 
   async getActivityById(id) {
