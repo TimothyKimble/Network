@@ -1,15 +1,23 @@
 <template>
-  <header>
-    <Navbar />
-  </header>
-  <main>
-    <router-view />
-  </main>
-  <footer>
-    <div class="bg-dark text-light text-center p-4">
-      Made with 💖 by CodeWorks
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-2 border-right border-dark StayForever">
+        <h1>profile</h1>
+      </div>
+      <div class="col-md-10 d-flex justify-content-center p-0 m-0 ">
+        <div class="row w-100">
+          <div class="col-md-12 p-0 m-0 ">
+            <header class="StayForever">
+              <Navbar />
+            </header>
+            <main class="d-flex justify-content-center backgroundDys">
+              <router-view />
+            </main>
+          </div>
+        </div>
+      </div>
     </div>
-  </footer>
+  </div>
 </template>
 
 <script>
@@ -26,5 +34,18 @@ export default {
 </script>
 <style lang="scss">
 @import "./assets/scss/main.scss";
+
+.backgroundDys {
+background: #606c88;  /* fallback for old browsers */
+background: -webkit-linear-gradient(to right, #3f4c6b, #606c88);  /* Chrome 10-25, Safari 5.1-6 */
+background: linear-gradient(to right, #3f4c6b, #606c88); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+}
+
+.StayForever {
+  position: -webkit-sticky;
+  position: sticky;
+  top: -1px;
+}
 
 </style>
