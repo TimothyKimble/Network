@@ -27,3 +27,15 @@ main {
   min-height: 93.85vh;
  
 }
+
+div.goAway {
+
+}
+@media screen and (Max-width: 766px) {
+
+  div.goAway {
+    visibility: hidden;
+    height: 0;
+    width: 0;
+  }
+}

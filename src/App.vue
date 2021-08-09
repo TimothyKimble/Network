@@ -1,7 +1,7 @@
 <template>
   <div class="container-fluid p-0">
     <div class="row w-100 m-0">
-      <div class="col-md-2 border-right border-dark bg-dark p-0 StayForever d-flex align-items-center sticky-top">
+      <div class="col-md-2 border-right border-dark bg-dark p-0 StayForever d-flex align-items-center sticky-top goAway">
         <UserSide />
       </div>
       <div class="col-md-10 d-flex justify-content-center p-0 m-0">

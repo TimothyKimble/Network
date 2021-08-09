@@ -73,6 +73,9 @@
         </div>
       </div>
     </div>
+    <div class="col-md-12 p-0 d-flex">
+      <ActivityThread />
+    </div>
   </div>
   <AccountModal :profile="profile" />
 </template>

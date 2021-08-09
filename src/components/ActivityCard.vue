@@ -18,7 +18,7 @@
         </div>
         <div class="col-md-2 p-2 d-flex m-1 justify-content-center align-items-center" v-if="account.id === activity.creatorId">
           <button @click.prevent="destroyActivity(id)" class="btn btn-danger text-center">
-            Delete
+            <i class="fas fa-trash fa-lg   "></i>
           </button>
         </div>
       </div>
