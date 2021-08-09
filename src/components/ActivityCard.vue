@@ -3,7 +3,6 @@
     <div class="col-md-12 p-0 m-0 w-100">
       <div class="row w-100 p-0 mx-0 d-flex justify-content-between border-bottom border-light ">
         <div class="col-md-4 p-2 m-1">
-          <!-- NOTE @click.stop prevents the parent element from being clicked -->
           <router-link router-link :to="{ name: 'ProfilePage', params: {id: activity.creator.id } }" class="creator w-100 d-flex">
             <img class="h-100 rounded-pill m-0 p-0"
                  :src="activity.creator.picture"

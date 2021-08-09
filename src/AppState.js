@@ -11,8 +11,8 @@ export const AppState = reactive({
   ActiveProfile: null,
   activityPages: {
     page: 0,
-    new: '',
-    old: ''
+    newer: '',
+    older: ''
   },
   query: ''
 })

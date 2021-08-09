@@ -1,11 +1,19 @@
 <template>
   <div class="home col-md-8">
-    <div class="">
-      <ActivityThread :activities="activities.posts" />
-      <button class="btn btn-info" v-if="activityPages.new" @click="changePage('?' + activityPages.new)">
+    <div class="row w-100 m-0">
+      <div class="col-md-8 p-0">
+        <ActivityThread :activities="activities.posts" />
+      </div>
+      <div class="col-md-2 p-0 m-5">
+        <Taco />
+      </div>
+      <button class="btn btn-info" v-if="activityPages.newer" @click="changePage('?' + activityPages.newer)">
         Previous
       </button>
-      <button class="btn btn-info" v-if="activityPages.old" @click="changePage('?' + activityPages.old)">
+      <div class="" v-if="!activityPages.newer"></div>
+      <div>{{ activityPages.page }}</div>
+      <div v-if="!activityPages.older"></div>
+      <button class="btn btn-info" v-if="activityPages.older" @click="changePage('?' + activityPages.older)">
         Next
       </button>
     </div>
