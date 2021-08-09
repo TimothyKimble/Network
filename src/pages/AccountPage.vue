@@ -1,8 +1,8 @@
 <template>
-  <div class="home col-md-12">
+  <div class="home col-md-12 d-flex">
     <AccountInfo :profile="profile" />
   </div>
-  <div v-for="a in activities" :key="a.id">
+  <div>
     <ActivityThread :activities="activities" />
   </div>
 </template>

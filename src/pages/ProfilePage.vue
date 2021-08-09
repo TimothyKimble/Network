@@ -5,7 +5,7 @@
         <ProfileThread :profiles="profiles" />
       </div>
       <div class="col-md-8 p-0">
-        <div v-for="a in activities" :key="a.id">
+        <div>
           <ActivityThread :activities="activities" />
         </div>
       </div>
