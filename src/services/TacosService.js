@@ -1,13 +1,14 @@
 import { AppState } from '../AppState'
 import { logger } from '../utils/Logger'
-import { convertToQuery } from '../utils/Query'
 import { api } from './AxiosService'
 class TacosService {
   async getTacos() {
-    const res = await api.get('api/ads/')
-    logger.log(res.data)
-    AppState.tacos = res.data
-    console.log(AppState.tacos)
+    try {
+      const res = await api.get('api/ads')
+      AppState.tacos = res.data
+    } catch (err) {
+      logger.error('No Tacos for you :(', err)
+    }
   }
 }
 

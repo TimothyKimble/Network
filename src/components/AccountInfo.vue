@@ -1,9 +1,9 @@
 <template>
   <div class="row w-100 mt-5 d-flex justify-content-center m-0">
-    <div class="col-md-9 p-0">
-      <div class="row w-100 m-0 px-3 d-flex justify-content-between">
+    <div class="col-md-9 p-0 d-flex">
+      <div class="row w-100 m-0  d-flex justify-content-center ">
         <div class="col-md-12 d-flex justify-content-center flex-column p-0 CardShadowing  bg-dark">
-          <div class="row w-100 m-0 p-0">
+          <div class="row w-100 m-0">
             <div class="col-md-12 p-0">
               <img class="coverImage" :src="profile.coverImg" alt="">
             </div>
@@ -45,9 +45,22 @@
           </div>
           <div class="row w-100 m-0">
             <div class="col-md-12 p-0">
-              <div><h6>{{ profile.class }}</h6></div>
-              <div><h5> {{ profile.name }} </h5></div>
-              <div>{{ profile.bio }}</div>
+              <div class="row m-0 mb-5 w-100 d-flex justify-content-between">
+                <div class="col-md-6 ">
+                  <div><h6>{{ profile.class }}</h6></div>
+                  <div><h5> {{ profile.name }} </h5></div>
+                  <div>{{ profile.bio }}</div>
+                </div>
+
+                <div class="col-md-2 d-flex justify-content-center align-items-center">
+                  <button class="btn btn-warning" data-toggle="modal" :data-target="'#profile-modal-' + profile.id">
+                    Edit Profile
+                  </button>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-12 p-0">
+              <CreateActivity />
             </div>
           </div>
         </div>
@@ -61,6 +74,7 @@
       </div>
     </div>
   </div>
+  <AccountModal :profile="profile" />
 </template>
 
 <script>
@@ -73,11 +87,10 @@ export default {
       required: true
     }
   },
-  setup() {
+  setup(profile) {
     return {
+      account: computed(() => AppState.account)
     }
-  },
-  components: {
   }
 }
 </script>

@@ -1,26 +1,43 @@
 <template>
-  <div class="about text-center">
-    <h1>Welcome {{ account.name }}</h1>
-    <img class="rounded" :src="account.picture" alt="" />
-    <p>{{ account.email }}</p>
+  <div class="home col-md-12">
+    <AccountInfo :profile="profile" />
+  </div>
+  <div v-for="a in activities" :key="a.id">
+    <ActivityThread :activities="activities" />
   </div>
 </template>
 
 <script>
-import { computed } from 'vue'
-import { AppState } from '../AppState'
+import { computed, onMounted } from '@vue/runtime-core'
+import { AppState } from '../AppState.js'
+import Pop from '../utils/Notifier'
+import { accountService } from '../services/AccountService'
+import { useRoute } from 'vue-router'
+import { activitiesService } from '../services/ActivitiesService.js'
 export default {
   name: 'Account',
   setup() {
+    const route = useRoute()
+
+    // state
+    // mounted
+    onMounted(async() => {
+      try {
+        const id = route.params.id
+        await activitiesService.getActivityById(route.params.id)
+        await accountService.getAccount(id)
+      } catch (error) {
+        Pop.toast(error, 'error')
+      }
+    })
     return {
-      account: computed(() => AppState.account)
+      // state,
+      // computeds
+      activities: computed(() => AppState.currentActivities),
+      profile: computed(() => AppState.account)
+      // methods
     }
   }
+
 }
 </script>
-
-<style scoped>
-img {
-  max-width: 100px;
-}
-</style>

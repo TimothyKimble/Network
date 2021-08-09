@@ -1,8 +1,14 @@
 <template>
-  <div class="home col-md-12">
-    <ProfileThread :profiles="profiles" />
-    <div v-for="a in activities" :key="a.id">
-      <ActivityThread :activities="activities" />
+  <div class="home col-md-12 p-0 m-0">
+    <div class="row w-100 m-0 justify-content-center d-flex p-0">
+      <div class="col-md-12 p-0">
+        <ProfileThread :profiles="profiles" />
+      </div>
+      <div class="col-md-8 p-0">
+        <div v-for="a in activities" :key="a.id">
+          <ActivityThread :activities="activities" />
+        </div>
+      </div>
     </div>
   </div>
 </template>

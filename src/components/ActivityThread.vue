@@ -1,10 +1,11 @@
 <template>
   <div class="">
-    <ActivityCard v-for="a in activities.posts" :key="a.id" :activity="a" />
+    <ActivityCard v-for="a in activities" :key="a.id" :activity="a" />
   </div>
 </template>
 
 <script>
+import ActivityCard from '../components/ActivityCard.vue'
 export default {
   name: 'ActivityThread',
   props: {
@@ -12,6 +13,9 @@ export default {
       type: Object,
       required: true
     }
+  },
+  components: {
+    ActivityCard
   }
 }
 </script>

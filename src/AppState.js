@@ -6,6 +6,13 @@ export const AppState = reactive({
   account: {},
   activities: [],
   profiles: [],
+  profile: {},
   tacos: [],
-  currentActivities: []
+  ActiveProfile: null,
+  activityPages: {
+    page: 0,
+    new: '',
+    old: ''
+  },
+  query: ''
 })

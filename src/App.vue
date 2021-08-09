@@ -1,13 +1,13 @@
 <template>
-  <div class="container-fluid">
-    <div class="row">
-      <div class="col-md-2 border-right border-dark StayForever">
-        <h1>profile</h1>
+  <div class="container-fluid p-0">
+    <div class="row w-100 m-0">
+      <div class="col-md-2 border-right border-dark bg-dark p-0 StayForever d-flex align-items-center sticky-top">
+        <UserSide />
       </div>
-      <div class="col-md-10 d-flex justify-content-center p-0 m-0 ">
+      <div class="col-md-10 d-flex justify-content-center p-0 m-0">
         <div class="row w-100">
           <div class="col-md-12 p-0 m-0 ">
-            <header class="StayForever">
+            <header class="StayForever sticky-top">
               <Navbar />
             </header>
             <main class="d-flex justify-content-center backgroundDys">
@@ -43,9 +43,7 @@ background: linear-gradient(to right, #3f4c6b, #606c88); /* W3C, IE 10+/ Edge, F
 }
 
 .StayForever {
-  position: -webkit-sticky;
-  position: sticky;
-  top: -1px;
+  max-height: 100vh;
 }
 
 </style>

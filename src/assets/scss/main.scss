@@ -12,7 +12,7 @@
 #app {
   display: flex;
   flex-direction: column;
-  min-height: 100vh;
+  height: 100vh;
   background-color: $body-bg;
   overflow-x: hidden;
   scroll-behavior: smooth;

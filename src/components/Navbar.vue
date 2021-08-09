@@ -1,5 +1,5 @@
 <template>
-  <nav class="navbar navbar-expand-lg navbar-dark activityGradient">
+  <nav class="navbar navbar-expand-lg navbar-dark activityGradient ">
     <router-link class="navbar-brand d-flex" :to="{ name: 'Home' }">
       <div class="d-flex flex-column align-items-center">
         <img
@@ -25,11 +25,6 @@
         <li class="nav-item">
           <router-link :to="{ name: 'Home' }" class="nav-link">
             Home
-          </router-link>
-        </li>
-        <li class="nav-item">
-          <router-link :to="{ name: 'About' }" class="nav-link">
-            About
           </router-link>
         </li>
       </ul>

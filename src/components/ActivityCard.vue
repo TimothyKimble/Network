@@ -13,8 +13,11 @@
             <span class="d-flex align-self-center pl-1">{{ activity.creator.name }}</span>
           </router-link>
         </div>
+        <div class="col-md-3 p-0 d-flex align-items-center justify-content-center">
+          {{ state.time }}
+        </div>
         <div class="col-md-2 p-2 d-flex m-1 justify-content-center align-items-center" v-if="account.id === activity.creatorId">
-          <button class="btn btn-danger text-center">
+          <button @click.prevent="destroyActivity(id)" class="btn btn-danger text-center">
             Delete
           </button>
         </div>
@@ -28,9 +31,23 @@
           </h6>
         </div>
       </div>
-      <div class="row w-100 p-0 mx-0 d-flex justify-content-center">
+      <div class="row w-100 p-0 m-0 d-flex justify-content-center">
         <div class="col-md-12 p-0">
           <img :src="activity.imgUrl" alt="" class="w-100">
+        </div>
+        <div>
+          <div class="col-md-12 p-0 pb-4 w-100 d-flex">
+            <div class="row m-0 w-100 mt-4">
+              <div class="col-md-6">
+                <i class="fa fa-heart" @click="addVote(activity.id, userProfile)"></i>
+              </div>
+              <div class="col-md-6">
+                <p class="m-0 p-0">
+                  {{ activity.likes.length }}
+                </p>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -38,10 +55,11 @@
 </template>
 
 <script>
-import { computed } from '@vue/runtime-core'
+import { computed, onMounted, reactive } from '@vue/runtime-core'
 import { AppState } from '../AppState'
 import Pop from '../utils/Notifier'
 import { activitiesService } from '../services/ActivitiesService'
+import { logger } from '../utils/Logger'
 export default {
   props: {
     activity: {
@@ -49,9 +67,35 @@ export default {
       required: true
     }
   },
-  setup() {
+  setup(props) {
+    const state = reactive({
+      time: ''
+    })
+    onMounted(() => {
+      const old = new Date(props.activity.createdAt)
+      state.time = old.toLocaleTimeString()
+    })
     return {
-      account: computed(() => AppState.account)
+      state,
+      account: computed(() => AppState.account),
+      profile: computed(() => AppState.profile),
+      async destroyActivity() {
+        try {
+          if (await Pop.confirm()) {
+            await activitiesService.destroyActivity(props.activity.id)
+            Pop.toast('You Removed This Post!', 'success')
+          }
+        } catch (error) {
+          Pop.toast('Trouble Deleting Post', 'error')
+        }
+      },
+      addVote(activityid, profile) {
+        try {
+          activitiesService.addVote(activityid, profile)
+        } catch (error) {
+          logger.log('Could not like post')
+        }
+      }
     }
   }
 }

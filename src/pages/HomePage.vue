@@ -1,7 +1,13 @@
 <template>
   <div class="home col-md-8">
     <div class="">
-      <ActivityThread :activities="activities" />
+      <ActivityThread :activities="activities.posts" />
+      <button class="btn btn-info" v-if="activityPages.new" @click="changePage('?' + activityPages.new)">
+        Previous
+      </button>
+      <button class="btn btn-info" v-if="activityPages.old" @click="changePage('?' + activityPages.old)">
+        Next
+      </button>
     </div>
   </div>
 </template>
@@ -23,7 +29,15 @@ export default {
       }
     })
     return {
-      activities: computed(() => AppState.activities)
+      activities: computed(() => AppState.activities),
+      activityPages: computed(() => AppState.activityPages),
+      async changePage(query) {
+        try {
+          await activitiesService.getAll(query)
+        } catch (error) {
+          Pop.toast("Can't Get Page", 'error')
+        }
+      }
     }
   }
 }
