@@ -1,11 +1,11 @@
 <template>
   <div class="row w-100 mt-5 d-flex justify-content-center m-0">
-    <div class="col-md-9 p-0">
+    <div class="col-md-10 p-0">
       <div class="row w-100 m-0 px-3 d-flex justify-content-between">
         <div class="col-md-12 d-flex justify-content-center flex-column p-0 CardShadowing  bg-dark">
           <div class="row w-100 m-0 p-0">
             <div class="col-md-12 p-0">
-              <img class="coverImage" :src="profile.coverImg" alt="">
+              <img class="w-100" :src="profile.coverImg" alt="">
             </div>
           </div>
           <div class="row w-100 m-0 d-flex justify-content-center">
@@ -14,7 +14,7 @@
                 <div class="col-md-3 spill">
                   <div class="row w-100 m-0">
                     <div class="col-md-12 p-0">
-                      <img class="rounded-pill w-100 h-100 " :src="profile.picture" alt="">
+                      <img class="rounded-circle w-100 " :src="profile.picture" alt="">
                     </div>
                     <div class="col-md-12 p-0 d-flex justify-content-end" v-if="profile.graduated === true">
                       <aside class="spillTwo">

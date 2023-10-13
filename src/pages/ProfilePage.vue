@@ -4,7 +4,7 @@
       <div class="col-md-12 p-0">
         <ProfileThread :profiles="profiles" />
       </div>
-      <div class="col-md-8 p-0">
+      <div class="col-md-10 p-3">
         <div>
           <ActivityThread :activities="activities" />
         </div>

@@ -1,10 +1,13 @@
 <template>
-  <div class="home col-md-12 d-flex">
+  <div class="row w-100">
+    <div class="home col-md-12 d-flex">
     <AccountInfo :profile="profile" />
   </div>
-  <div>
+  <div class="col-md-10 d-flex">
     <ActivityThread :activities="activities" />
   </div>
+  </div>
+
 </template>
 
 <script>
@@ -24,7 +27,7 @@ export default {
     onMounted(async() => {
       try {
         const id = route.params.id
-        await activitiesService.getActivityById(route.params.id)
+        await activitiesService.getActivityById(AppState.account.id)
         await accountService.getAccount(id)
       } catch (error) {
         Pop.toast(error, 'error')

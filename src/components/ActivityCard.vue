@@ -1,7 +1,7 @@
 <template>
   <div class="row w-100 my-5 mx-0 CardShadowing activityGradient text-light grow">
     <div class="col-md-12 p-0 m-0 w-100">
-      <div class="row w-100 p-0 mx-0 d-flex justify-content-between border-bottom border-light ">
+      <div class="row w-100 p-0 mx-0 d-flex border-bottom border-light ">
         <div class="col-md-4 p-2 m-1">
           <router-link router-link :to="{ name: 'ProfilePage', params: {id: activity.creator.id } }" class="creator w-100 d-flex">
             <img class="h-100 rounded-pill m-0 p-0"
